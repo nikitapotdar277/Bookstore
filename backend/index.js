@@ -12,12 +12,13 @@ app.use(express.json());
 
 // CORS to handle Cross-Origin Resource Sharing
 // Allows all origins - just call cors()
+app.use(cors())
 // Allow specific origins - mention as parameters for the cors function
-app.use(cors({
-    origin: "http://localhost:3000",
-    methods: ['Get', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type'],
-}));
+// app.use(cors({
+//     origin: "http://localhost:3000",
+//     methods: ['Get', 'POST', 'PUT', 'DELETE'],
+//     allowedHeaders: ['Content-Type'],
+// }));
 
 app.get("/", (request, response) => {
     console.log(request);
