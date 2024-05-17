@@ -7,57 +7,59 @@ import Spinner from '../components/Spinner'
 const ShowBook = () => {
     const [book, setBook] = useState([]);
     const [loading, setLoading] = useState([]);
-    const {id} = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
         setLoading(true);
         axios.get(`http://127.0.0.1:5555/books/${id}`)
-        .then((response) => {
-            setBook(response.data);
-            console.log(book)
-            setLoading(false);
-        })
-        .catch((error) => {
-            console.log(error);
-        })
+            .then((response) => {
+                setBook(response.data);
+                console.log(book)
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }, [])
 
-  return (
-    <div className='p-4'>
-        <BackButton/>
-        <h1 className='text-3xl my-4'>Show Book</h1>
-        {loading ? (
-            <Spinner/>
-        ) : (
-            <div className='flex flex-col items-start border-2 border-sky-400 rounded-xl w-fit p-4'>
-                <div className='my-4'>
-                    <span className='text-xl mr-4 text-gray-500'>Id</span>
-                    <span>{book._id}</span>
-                </div>
-                <div className='my-4'>
-                    <span className='text-xl mr-4 text-gray-500'>Title</span>
-                    <span>{book.title}</span>
-                </div>
-                <div className='my-4'>
-                    <span className='text-xl mr-4 text-gray-500'>Author</span>
-                    <span>{book.author}</span>
-                </div>
-                <div className='my-4'>
-                    <span className='text-xl mr-4 text-gray-500'>Publish Year</span>
-                    <span>{book.publishYear}</span>
-                </div>
-                <div className='my-4'>
-                    <span className='text-xl mr-4 text-gray-500'>Create Time</span>
-                    <span>{new Date(book.createdAt).toString()}</span>
-                </div>
-                <div className='my-4'>
-                    <span className='text-xl mr-4 text-gray-500'>Last Update Time</span>
-                    <span>{new Date(book.updatedAt).toString()}</span>
-                </div>
+    return (
+        <div className='p-4'>
+            <div className='isolate bg-white px-8 py-8'>
+                <BackButton />
+                <h1 className='text-3xl my-4'>Show Book</h1>
+                {loading ? (
+                    <Spinner />
+                ) : (
+                    <div className='flex flex-col justify-between items-start mx-auto my-2 mt-30 max-w-xl sm:mt-20'>
+                        <div className='my-4'>
+                            <span className='text-l mr-4 text-gray-500'>Id</span>
+                            <span>{book._id}</span>
+                        </div>
+                        <div className='my-4'>
+                            <span className='text-l mr-4 text-gray-500'>Title</span>
+                            <span>{book.title}</span>
+                        </div>
+                        <div className='my-4'>
+                            <span className='text-l mr-4 text-gray-500'>Author</span>
+                            <span>{book.author}</span>
+                        </div>
+                        <div className='my-4'>
+                            <span className='text-l mr-4 text-gray-500'>Publish Year</span>
+                            <span>{book.publishYear}</span>
+                        </div>
+                        <div className='my-4'>
+                            <span className='text-l mr-4 text-gray-500'>Create Time</span>
+                            <span>{new Date(book.createdAt).toString()}</span>
+                        </div>
+                        <div className='my-4'>
+                            <span className='text-l mr-4 text-gray-500'>Last Update Time</span>
+                            <span>{new Date(book.updatedAt).toString()}</span>
+                        </div>
+                    </div>
+                )}
             </div>
-        ) }
-    </div>
-  )
+        </div>
+    )
 }
 
 export default ShowBook
