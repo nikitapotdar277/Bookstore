@@ -1,12 +1,12 @@
 import React from 'react'
-import { BsArrowLeft } from "react-icons/bs";
+import { FaArrowLeft } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 
-const BackButton = (destination = '/') => {
+const BackButton = () => {
   return (
     <div className='flex'>
-        <Link to={destination} className='text-white px-4 py-1 rounded-lg w-fit'>
-            <BsArrowLeft/>        
+        <Link to='/' className='px-4 py-1 rounded-lg w-fit'>
+            <FaArrowLeft/>        
         </Link>
     </div>
 
