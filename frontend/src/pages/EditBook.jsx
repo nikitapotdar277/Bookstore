@@ -14,7 +14,7 @@ const EditBook = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:5555/books/${id}`)
+    axios.get(`http://127.0.0.1:8080/books/${id}`)
     .then((response) => {
       setTitle(response.data.title);
       setAuthor(response.data.author);
@@ -39,7 +39,7 @@ const EditBook = () => {
     console.log(bookToEdit)
 
     axios
-      .put(`http://localhost:5555/books/${id}`, bookToEdit)
+      .put(`http://localhost:8080/books/${id}`, bookToEdit)
       .then(() => {
         setLoading(false)
         navigate('/')

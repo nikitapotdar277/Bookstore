@@ -11,7 +11,7 @@ const ShowBook = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`http://127.0.0.1:5555/books/${id}`)
+        axios.get(`http://127.0.0.1:8080/books/${id}`)
             .then((response) => {
                 setBook(response.data);
                 console.log(book)
