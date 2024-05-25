@@ -80,7 +80,7 @@ Bookstore/
 │       ├── pages/
 │       ├── assets/
 │       └── ...
-└── server/          # Backend Node.js and Express application
+└── backend/          # Backend Node.js and Express application
     ├── models/
     ├── routes/
     └── ...
